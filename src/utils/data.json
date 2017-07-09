@@ -1,0 +1,61 @@
+[
+  {
+    "posterName":"Saikat Sinha",
+    "profileImg":"",
+    "postComment":"It’s through mistakes that you actually can grow. You have to get bad in order to get good.",
+    "likes":"3",
+    "shares":"11",
+    "comments":[
+      [
+        "Louis Swaz",
+        "",
+        "It is a great day",
+        "2",
+        [
+          [
+            "Milind Sharma",
+            "",
+            "Is it?",
+            "1",
+            []
+          ],
+          [
+            "Louis Swaz",
+            "",
+            "Of Course",
+            "0",
+            []
+          ]
+        ]
+      ],
+      [
+        "Chris Doe",
+        "",
+        "Great Words",
+        "6",
+        []
+      ],
+      [
+        "Malini Singh",
+        "",
+        "It made my Day",
+        "4",
+        [
+          [
+            "Saikat Sinha",
+            "",
+            "Thanks Malini",
+            "2",
+            [
+              "Malini Singh",
+              "",
+              "How's life going?",
+              "1",
+              []
+            ]
+          ]
+        ]
+      ]
+    ]
+  }
+]
