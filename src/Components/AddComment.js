@@ -5,7 +5,8 @@ class AddComment extends Component{
         super(props);
         this.state = {
             DescValue: "",
-            Likes: '0'
+            Likes: '0',
+            listDataFromChild: null
         };
 
         this.SubmitHandler = this.SubmitHandler.bind(this);
@@ -13,6 +14,7 @@ class AddComment extends Component{
     SubmitHandler(e){
         e.preventDefault();
         this.setState({DescValue: this.input.value});
+        this.setState({listDataFromChild: [this.props.posterName, this.props.profileImg, this.state.Likes, this.state.DescValue]});
         console.log(this.input.value);
     }
 
@@ -20,7 +22,7 @@ class AddComment extends Component{
     componentWillUpdate(nextProps, nextState){
         var x = localStorage.getItem("_commentData_");
         var a= JSON.parse(x);
-        a[0].comments[a[0].comments.length-1] = [this.props.posterName,this.props.profileImg, nextState.DescValue, nextState.Likes,[]]
+        a[0].comments[a[0].comments.length] = [this.props.posterName,this.props.profileImg, nextState.DescValue, nextState.Likes,[]]
         localStorage.setItem("_commentData_", JSON.stringify(a))
 
     }

@@ -7,21 +7,11 @@ class Comment extends Component{
     constructor(props){
         super(props);
         this.state = {
-            initialData: this.props.data[0].comments,
-            listComment: null
+            initialData: this.props.data[0].comments
         };
         this.sendData = this.sendData.bind(this);
-        this.HandleState = this.HandleState.bind(this);
-
     }
 
-
-    HandleState(DataFromComment){
-        this.setState({
-            listComment: DataFromComment
-        })
-        console.log(this.state.listComment)
-    }
 
     sendData(data){
         const sector = data.map(ele => {
