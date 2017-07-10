@@ -8,53 +8,21 @@
     "comments":[
       [
         "Louis Swaz",
-        "",
+        "http://bootdey.com/img/Content/user_1.jpg",
         "It is a great day",
-        "2",
-        [
-          [
-            "Milind Sharma",
-            "",
-            "Is it?",
-            "1",
-            []
-          ],
-          [
-            "Louis Swaz",
-            "",
-            "Of Course",
-            "0",
-            []
-          ]
-        ]
+        "2"
       ],
       [
         "Chris Doe",
-        "",
+        "http://bootdey.com/img/Content/user_1.jpg",
         "Great Words",
-        "6",
-        []
+        "6"
       ],
       [
         "Malini Singh",
-        "",
+        "http://bootdey.com/img/Content/user_1.jpg",
         "It made my Day",
-        "4",
-        [
-          [
-            "Saikat Sinha",
-            "",
-            "Thanks Malini",
-            "2",
-            [
-              "Malini Singh",
-              "",
-              "How's life going?",
-              "1",
-              []
-            ]
-          ]
-        ]
+        "4"
       ]
     ]
   }

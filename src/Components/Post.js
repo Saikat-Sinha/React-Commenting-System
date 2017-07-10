@@ -3,7 +3,12 @@ import Comment from './Comment';
 
 class Post extends Component {
     constructor(props){
-        super();
+        super(props);
+        this.state ={
+            PostComment: this.props.data[0].postComment,
+            PostLike: this.props.data[0].likes,
+            isClicked: false,
+        }
         this.handleLike = this.handleLike.bind(this);
         this.handleShare = this.handleShare.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
@@ -11,7 +16,19 @@ class Post extends Component {
     }
     handleLike(e){
         e.preventDefault();
-        console.log("Clicked");
+        if(this.state.isClicked){
+            this.setState({
+                PostLike: Number(this.state.PostLike)-1,
+                isClicked:false
+            })
+        }
+        else{
+            this.setState({
+                PostLike: Number(this.state.PostLike)+1,
+                isClicked: true
+            })
+        }
+
     }
     handleShare(e){
         e.preventDefault();
@@ -25,7 +42,8 @@ class Post extends Component {
         e.preventDefault();
         alert("This Component Can't Be Removed");
     }
-    render() {
+
+    render(){
         return (
             <div className="container contained">
                 <div className="col-sm-12">
@@ -44,10 +62,10 @@ class Post extends Component {
                             </div>
                         </div>
                         <div className="post-description">
-                            <p>{this.props.data[0].postComment}</p>
+                            <p>{this.state.PostComment}</p>
                             <div className="stats">
                                 <a href="#" className="btn btn-default stat-item" onClick={this.handleLike}>
-                                    <i className="fa fa-thumbs-up icon"></i>{this.props.data[0].likes}
+                                    <i className="fa fa-thumbs-up icon"></i>{this.state.PostLike}
                                 </a>
                                 <a href="#" className="btn btn-default stat-item" onClick={this.handleShare}>
                                     <i className="fa fa-share icon"></i>{this.props.data[0].shares}
@@ -60,7 +78,7 @@ class Post extends Component {
                                 </a>
                             </div>
                         </div>
-                       <Comment />
+                       <Comment data={this.props.data}/>
                     </div>
                 </div>
             </div>

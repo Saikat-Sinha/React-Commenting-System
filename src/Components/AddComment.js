@@ -4,7 +4,7 @@ class AddComment extends Component{
     constructor(props){
         super(props);
         this.state = {
-            DescValue: '',
+            DescValue: "",
             Likes: '0'
         };
 
@@ -15,11 +15,14 @@ class AddComment extends Component{
         this.setState({DescValue: this.input.value});
         console.log(this.input.value);
     }
+
+
     componentWillUpdate(nextProps, nextState){
         var x = localStorage.getItem("_commentData_");
         var a= JSON.parse(x);
         a[0].comments[a[0].comments.length-1] = [this.props.posterName,this.props.profileImg, nextState.DescValue, nextState.Likes,[]]
         localStorage.setItem("_commentData_", JSON.stringify(a))
+
     }
 
 

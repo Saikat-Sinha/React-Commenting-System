@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LoadReply from './LoadReply';
 
 class PostPanel extends Component {
     constructor(props) {
@@ -9,6 +8,7 @@ class PostPanel extends Component {
             Likes: this.props.elem[3],
             isEdit: false,
             isEditClicked: false,
+            edit: null,
             isClicked: false,
             showComponent: true,
             isReply: false,
@@ -81,9 +81,9 @@ class PostPanel extends Component {
 
     render() {
         var noEdit = <p>{this.props.elem[2]}</p>;
-        var yesEdit = <form onSubmit={this.EditSubmitter}>
+        var yesEdit = <form onSubmit={this.EditSubmitter} >
                     <div className="input-group">
-                        <input type="text" className="form-control comment-input" value={this.props.elem[2]}/>
+                        <input type="text" className="form-control comment-input" value={this.props.elem[2]} ref={(input) => this.input = input}/>
                         <span className="input-group-addon">
                         <button>Ok</button>
                         <button>Cancel</button>
@@ -131,8 +131,7 @@ class PostPanel extends Component {
                         {this.state.isReply?reply:null}
                     </div>
                     <hr/>
-                    {/*{this.props.children}*/}
-                    <LoadReply elem={this.props.elem}/>
+                    {this.props.children}
                 </li>
             </ul>: null
         );

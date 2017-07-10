@@ -1,61 +1,44 @@
 import React, { Component } from 'react';
 
 import AddComment from './AddComment';
-import PostPanel from './PostPanel';
+import CommentSector from './CommentSector';
 
 class Comment extends Component{
     constructor(props){
-        super();
+        super(props);
         this.state = {
-          comments:null,
-          CommentElements: null
+            initialData: this.props.data[0].comments,
+            listComment: null
         };
-        // this.getLocalItems = this.getLocalItems.bind(this);
-        this.makeTags = this.makeTags.bind(this);
-         this.createPanel = this.createPanel.bind(this);
-         this.ForceUpdateHandler = this.ForceUpdateHandler.bind(this);
+        this.sendData = this.sendData.bind(this);
+        this.HandleState = this.HandleState.bind(this);
+
     }
-    ForceUpdateHandler(){
-        this.forceUpdate()
-    }
-    componentWillMount(){
-        var ls = localStorage.getItem("_commentData_");
-        var parsed = JSON.parse(ls);
-        var comments = parsed[0].comments;
+
+
+    HandleState(DataFromComment){
         this.setState({
-            comments: comments
+            listComment: DataFromComment
         })
+        console.log(this.state.listComment)
     }
 
-    createPanel(){
-        return(<PostPanel></PostPanel>)
-    }
-
-    makeTags(arr) {
-        const panel = arr.map(ele =>{
-            var p = <PostPanel elem={ele} key={ele[0]}></PostPanel>;
+    sendData(data){
+        const sector = data.map(ele => {
+            var p = <CommentSector elem={ele} key={"sector "+ele}></CommentSector>;
             return p;
         });
-        return panel;
+        return sector;
     }
-    // getLocalItems() {
-    //     var ls = localStorage.getItem("_commentData_");
-    //     var parsed = JSON.parse(ls);
-    //     var comments = parsed[0].comments;
-    //     this.setState({
-    //         comments: comments
-    //     })
-    // }
     render(){
         return(
-            <div className="post-comments" onChange={this.ForceUpdateHandler}>
+            <div className="post-comments">
                 <AddComment/>
                 <div>
-                    {this.makeTags(this.state.comments)}
-
+                    {this.sendData(this.state.initialData)}
                 </div>
             </div>
-        );
+        )
     }
 }
 

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 module.exports = {
     fetchData: function () {
-        var URI = "https://gist.githubusercontent.com/Saikat-Sinha/257a2b69571afece9886f58ac0eaced7/raw/1489dfa75a05cb4808e8d0c5bae3e7caf9da1352/commentData.json";
+        var URI = "https://gist.githubusercontent.com/Saikat-Sinha/257a2b69571afece9886f58ac0eaced7/raw/c420da8bb8c2d185921fade278e752b933b38798/commentData.json";
 
         return axios.get(URI)
             .then(function(response){
